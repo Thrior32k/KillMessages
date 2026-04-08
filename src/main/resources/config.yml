@@ -32,4 +32,4 @@ errors:
   no-permission: "&#FF3333You don't have a permission to use this!"
 
 # do not change this
-version: 3
+version: 4

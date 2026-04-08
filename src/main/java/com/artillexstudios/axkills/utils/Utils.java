@@ -1,6 +1,5 @@
 package com.artillexstudios.axkills.utils;
 
-import com.artillexstudios.axkills.hooks.InteractiveChatHook;
 import com.artillexstudios.axkills.hooks.PlaceholderAPIHook;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -21,19 +20,13 @@ public class Utils {
     }
     public static String setItem(@NotNull Player player) {
 
-        if (Bukkit.getPluginManager().getPlugin("InteractiveChat") != null) {
-            return InteractiveChatHook.markSender(player);
-        } else {
-            if (player.getInventory().getItemInHand() == null) return "air";
-            final ItemStack it = player.getInventory().getItemInHand();
-            String typeStr = it.getType().toString().replace("_", " ").toLowerCase();
+        final ItemStack it = player.getInventory().getItemInMainHand();
+        if (it.getType().isAir()) return CONFIG.getString("empty-hand-text");
+        String typeStr = it.getType().toString().replace("_", " ").toLowerCase();
 
-            typeStr = typeStr.replace("air", CONFIG.getString("empty-hand-text"));
+        if (it.getItemMeta() == null) return CONFIG.getString("item-format").replace("%item%", typeStr);
+        final ItemMeta meta = it.getItemMeta();
 
-            if (it.getItemMeta() == null) return CONFIG.getString("item-format").replace("%item%", typeStr);
-            final ItemMeta meta = it.getItemMeta();
-
-            return CONFIG.getString("item-format").replace("%item%", meta.hasDisplayName() ? meta.getDisplayName() : typeStr);
-        }
+        return CONFIG.getString("item-format").replace("%item%", meta.hasDisplayName() ? meta.getDisplayName() : typeStr);
     }
 }
