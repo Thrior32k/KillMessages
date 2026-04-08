@@ -1,8 +1,8 @@
-package com.artillexstudios.axkills.listeners;
+package dev.thrior.killmessages.listeners;
 
-import com.artillexstudios.axkills.AxKills;
-import com.artillexstudios.axkills.utils.ColorUtils;
-import com.artillexstudios.axkills.utils.Utils;
+import dev.thrior.killmessages.KillMessages;
+import dev.thrior.killmessages.utils.ColorUtils;
+import dev.thrior.killmessages.utils.Utils;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -10,7 +10,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.jetbrains.annotations.NotNull;
 
-import static com.artillexstudios.axkills.AxKills.CONFIG;
+import static dev.thrior.killmessages.KillMessages.CONFIG;
 
 
 public class DeathListener implements Listener {
@@ -79,7 +79,7 @@ public class DeathListener implements Listener {
         final boolean perWorld = CONFIG.getBoolean("per-world-killmessages", false);
 
         for (Player online : Bukkit.getOnlinePlayers()) {
-            if (AxKills.getDatabaseManager().isDisabled(online.getUniqueId())) continue;
+            if (KillMessages.getDatabaseManager().isDisabled(online.getUniqueId())) continue;
             if (perWorld && !online.getWorld().equals(player.getWorld())) continue;
             online.sendMessage(formatted);
         }

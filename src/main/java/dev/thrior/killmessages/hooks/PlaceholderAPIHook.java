@@ -1,4 +1,4 @@
-package com.artillexstudios.axkills.hooks;
+package dev.thrior.killmessages.hooks;
 
 import me.clip.placeholderapi.PlaceholderAPI;
 import org.bukkit.entity.Player;

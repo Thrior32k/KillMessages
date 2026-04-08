@@ -1,4 +1,4 @@
-package com.artillexstudios.axkills.config;
+package dev.thrior.killmessages.config;
 
 import dev.dejvokep.boostedyaml.YamlDocument;
 

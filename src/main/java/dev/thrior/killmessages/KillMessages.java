@@ -1,21 +1,21 @@
-package com.artillexstudios.axkills;
+package dev.thrior.killmessages;
 
-import com.artillexstudios.axkills.commands.MainCommand;
-import com.artillexstudios.axkills.config.AbstractConfig;
-import com.artillexstudios.axkills.config.impl.Config;
-import com.artillexstudios.axkills.database.DatabaseManager;
-import com.artillexstudios.axkills.listeners.DeathListener;
+import dev.thrior.killmessages.commands.MainCommand;
+import dev.thrior.killmessages.config.AbstractConfig;
+import dev.thrior.killmessages.config.impl.Config;
+import dev.thrior.killmessages.database.DatabaseManager;
+import dev.thrior.killmessages.listeners.DeathListener;
 import dev.dejvokep.boostedyaml.YamlDocument;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class AxKills extends JavaPlugin {
+public final class KillMessages extends JavaPlugin {
     public static YamlDocument CONFIG;
     private static AbstractConfig abstractConfig;
-    private static AxKills instance;
+    private static KillMessages instance;
     private static DatabaseManager databaseManager;
 
-    public static AxKills getInstance() {
+    public static KillMessages getInstance() {
         return instance;
     }
 
@@ -41,8 +41,8 @@ public final class AxKills extends JavaPlugin {
         databaseManager.init();
 
         MainCommand mainCommand = new MainCommand();
-        this.getCommand("axkills").setExecutor(mainCommand);
-        this.getCommand("axkills").setTabCompleter(mainCommand);
+        this.getCommand("killmessages").setExecutor(mainCommand);
+        this.getCommand("killmessages").setTabCompleter(mainCommand);
 
         getServer().getPluginManager().registerEvents(new DeathListener(), this);
     }

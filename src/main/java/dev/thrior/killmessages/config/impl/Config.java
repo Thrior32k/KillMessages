@@ -1,7 +1,7 @@
-package com.artillexstudios.axkills.config.impl;
+package dev.thrior.killmessages.config.impl;
 
-import com.artillexstudios.axkills.AxKills;
-import com.artillexstudios.axkills.config.AbstractConfig;
+import dev.thrior.killmessages.KillMessages;
+import dev.thrior.killmessages.config.AbstractConfig;
 import dev.dejvokep.boostedyaml.YamlDocument;
 import dev.dejvokep.boostedyaml.dvs.versioning.BasicVersioning;
 import dev.dejvokep.boostedyaml.settings.dumper.DumperSettings;
@@ -19,7 +19,7 @@ public class Config implements AbstractConfig {
     @Override
     public void setup() {
         try {
-            file = YamlDocument.create(new File(AxKills.getInstance().getDataFolder(), "config.yml"), AxKills.getInstance().getResource("config.yml"), GeneralSettings.builder().setUseDefaults(false).build(), LoaderSettings.DEFAULT, DumperSettings.DEFAULT, UpdaterSettings.builder().setKeepAll(true).setVersioning(new BasicVersioning("version")).build());
+            file = YamlDocument.create(new File(KillMessages.getInstance().getDataFolder(), "config.yml"), KillMessages.getInstance().getResource("config.yml"), GeneralSettings.builder().setUseDefaults(false).build(), LoaderSettings.DEFAULT, DumperSettings.DEFAULT, UpdaterSettings.builder().setKeepAll(true).setVersioning(new BasicVersioning("version")).build());
             file.update();
         } catch (Exception ex) {
             ex.printStackTrace();

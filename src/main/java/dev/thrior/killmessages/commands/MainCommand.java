@@ -1,7 +1,7 @@
-package com.artillexstudios.axkills.commands;
+package dev.thrior.killmessages.commands;
 
-import com.artillexstudios.axkills.AxKills;
-import com.artillexstudios.axkills.utils.MessageUtils;
+import dev.thrior.killmessages.KillMessages;
+import dev.thrior.killmessages.utils.MessageUtils;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -27,31 +27,31 @@ public class MainCommand implements CommandExecutor, TabCompleter {
 
             final Player player = (Player) sender;
 
-            if (!player.hasPermission("axkills.toggle") && !player.hasPermission("axkills.admin")
-                    && !player.hasPermission("axkills.*")) {
+            if (!player.hasPermission("killmessages.toggle") && !player.hasPermission("killmessages.admin")
+                    && !player.hasPermission("killmessages.*")) {
                 MessageUtils.sendMsgP(player, "errors.no-permission");
                 return true;
             }
 
-            boolean nowEnabled = AxKills.getDatabaseManager().toggle(player.getUniqueId());
+            boolean nowEnabled = KillMessages.getDatabaseManager().toggle(player.getUniqueId());
             MessageUtils.sendMsgP(player, nowEnabled ? "toggle.enabled" : "toggle.disabled");
             return true;
         }
 
         if (args.length > 0 && args[0].equalsIgnoreCase("reload")) {
-            if (!sender.hasPermission("axkills.reload") && !sender.hasPermission("axkills.admin")
-                    && !sender.hasPermission("axkills.*")) {
+            if (!sender.hasPermission("killmessages.reload") && !sender.hasPermission("killmessages.admin")
+                    && !sender.hasPermission("killmessages.*")) {
                 MessageUtils.sendMsgP(sender, "errors.no-permission");
                 return true;
             }
 
-            AxKills.getAbstractConfig().reloadConfig();
+            KillMessages.getAbstractConfig().reloadConfig();
             MessageUtils.sendMsgP(sender, "reload");
             return true;
         }
 
-        if (sender.hasPermission("axkills.reload") || sender.hasPermission("axkills.admin")
-                || sender.hasPermission("axkills.*")) {
+        if (sender.hasPermission("killmessages.reload") || sender.hasPermission("killmessages.admin")
+                || sender.hasPermission("killmessages.*")) {
             MessageUtils.sendMsgP(sender, "usage");
         } else {
             MessageUtils.sendMsgP(sender, "errors.no-permission");

@@ -1,5 +1,3 @@
-# The plugin will only work if the showDeathMessages gamerule is set to true
-#
 # Builtin placeholders:
 #  %victim%
 #
@@ -16,19 +14,48 @@
 # list of all the valid death causes: https://hub.spigotmc.org/javadocs/spigot/org/bukkit/event/entity/EntityDamageEvent.DamageCause.html
 # note: the plugin already auto generates them when the server starts
 death-messages:
-  KILLED: "&#33ff33%victim% &fwas &#FFCC00killed &fby &#FF3333%attacker% &fusing &#00FFFF%item%"
-  FALL: "&#33ff33%victim% &#FFCC00fell down &ffrom a high place!"
-  VOID: "&#33ff33%victim% &ffell in the &#FFCC00void&f!"
-  LAVA: "&#33ff33%victim% &fgot burnt by &#FFCC00lava&f!"
-  DROWNING: "&#33ff33%victim% &fwent underwater for too long and &#FFCC00drowned&f!"
+  KILLED: '&#FF3333☠ %victim% &7was killed by &#33ff33🗡 %[ATTACKER]player_displayname% &7[&#FF0078%[ATTACKER]player_health_rounded%❤&7]'
+  FALL: '&#FF3333☠ %victim% &7fell down from a high place!'
+  VOID: '&#FF3333☠ %victim% &7fell in the void!'
+  LAVA: '&#FF3333☠ %victim% &7got burnt by lava'
+  DROWNING: '&#FF3333☠ %victim% &7drowned'
+  FREEZE: '&#FF3333☠ %victim% &7died!'
+  CONTACT: '&#33ff33%victim% &fdied!'
+  CRAMMING: '&#33ff33%victim% &fdied!'
+  ENTITY_SWEEP_ATTACK: '&#33ff33%victim% &fdied!'
+  FIRE_TICK: '&#FF3333☠ %victim% &7died!'
+  ENTITY_EXPLOSION: '&#33ff33%victim% &fdied!'
+  WITHER: '&#33ff33%victim% &fdied!'
+  FIRE: '&#FF3333☠ %victim% &7burned to death'
+  MAGIC: '&#FF3333☠ %victim% &7died!'
+  PROJECTILE: '&#FF3333☠ %victim% &7was shot'
+  CUSTOM: '&#FF3333☠ %victim% &7died!'
+  SUICIDE: '&#33ff33%victim% &fdied!'
+  DRAGON_BREATH: '&#33ff33%victim% &fdied!'
+  SONIC_BOOM: '&#FF3333☠ %victim% &7died!'
+  CAMPFIRE: '&#FF3333☠ %victim% &7died!'
+  LIGHTNING: '&#33ff33%victim% &fdied!'
+  FALLING_BLOCK: '&#FF3333☠ %victim% &7died!'
+  FLY_INTO_WALL: '&#FF3333☠ %victim% &7crashed into the Twin Tower'
+  THORNS: '&#33ff33%victim% &fdied!'
+  ENTITY_ATTACK: '&#33ff33%victim% &fdied!'
+  WORLD_BORDER: '&#33ff33%victim% &fdied!'
+  SUFFOCATION: '&#FF3333☠ %victim% &7died!'
+  DRYOUT: '&#33ff33%victim% &fdied!'
+  MELTING: '&#33ff33%victim% &fdied!'
+  BLOCK_EXPLOSION: '&#FF3333☠ %victim% &7was killed by respawn anchor'
+  POISON: '&#FF3333☠ %victim% &7died!'
+  HOT_FLOOR: '&#33ff33%victim% &fdied!'
+  STARVATION: '&#33ff33%victim% &fdied!'
+  KILL: '&#FF3333☠ %victim% &7died!'
 
-prefix: "&#EE3333&lAxKills&r &7» "
+prefix: "&#EE3333&lKM&r &7» "
 reload: "&#33FF33Successfully reloaded the plugin!"
-usage: "&fUsage: &7/axkills <reload|toggle>"
+usage: "&fUsage: &7/killmessages <reload|toggle>"
 
 toggle:
-  enabled: "&#33FF33Death messages are now &aenabled&f!"
-  disabled: "&#33FF33Death messages are now &cdisabled&f!"
+  enabled: "&#33FF33Kill messages are now &aenabled&f!"
+  disabled: "&#33FF33Kill messages are now &cdisabled&f!"
 
 per-world-killmessages: false
 

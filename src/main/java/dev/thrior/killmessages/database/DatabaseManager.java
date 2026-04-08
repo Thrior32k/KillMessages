@@ -1,6 +1,6 @@
-package com.artillexstudios.axkills.database;
+package dev.thrior.killmessages.database;
 
-import com.artillexstudios.axkills.AxKills;
+import dev.thrior.killmessages.KillMessages;
 
 import java.io.File;
 import java.sql.Connection;
@@ -19,7 +19,7 @@ public class DatabaseManager {
 
     public void init() {
         try {
-            final File dbFile = new File(AxKills.getInstance().getDataFolder(), DB_FILE_NAME);
+            final File dbFile = new File(KillMessages.getInstance().getDataFolder(), DB_FILE_NAME);
             connection = DriverManager.getConnection("jdbc:sqlite:" + dbFile.getAbsolutePath());
 
             try (PreparedStatement stmt = connection.prepareStatement(
@@ -56,7 +56,7 @@ public class DatabaseManager {
         }
 
         final boolean disabled = !nowEnabled;
-        AxKills.getInstance().getServer().getScheduler().runTaskAsynchronously(AxKills.getInstance(), () -> {
+        KillMessages.getInstance().getServer().getScheduler().runTaskAsynchronously(KillMessages.getInstance(), () -> {
             try (PreparedStatement stmt = connection.prepareStatement(
                     "INSERT INTO player_settings (uuid, death_messages_disabled) VALUES (?, ?) " +
                             "ON CONFLICT(uuid) DO UPDATE SET death_messages_disabled = ?")) {

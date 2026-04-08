@@ -1,13 +1,13 @@
-package com.artillexstudios.axkills.utils;
+package dev.thrior.killmessages.utils;
 
-import com.artillexstudios.axkills.hooks.PlaceholderAPIHook;
+import dev.thrior.killmessages.hooks.PlaceholderAPIHook;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 import org.jetbrains.annotations.NotNull;
 
-import static com.artillexstudios.axkills.AxKills.CONFIG;
+import static dev.thrior.killmessages.KillMessages.CONFIG;
 
 public class Utils {
     public static String setPlaceholders(@NotNull Player player, @NotNull String msg) {

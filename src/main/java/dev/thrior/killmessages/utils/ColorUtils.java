@@ -1,4 +1,4 @@
-package com.artillexstudios.axkills.utils;
+package dev.thrior.killmessages.utils;
 
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.format.TextDecoration;
@@ -24,16 +24,7 @@ public class ColorUtils {
         return message;
     }
 
-    @NotNull
-    public static Component formatToComponent(@NotNull String message) {
-        return toComponent(format(message));
-    }
-
     public static @NotNull String toLegacy(@NotNull Component component) {
         return LEGACY_COMPONENT_SERIALIZER.serialize(component);
-    }
-
-    public static @NotNull Component toComponent(@NotNull String message) {
-        return LEGACY_COMPONENT_SERIALIZER.deserialize(message);
     }
 }
