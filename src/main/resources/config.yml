@@ -5,7 +5,7 @@
 #
 # These only work in the KILLED message:
 #  %attacker%
-#  %item% - It's recommended to install InteractiveChat
+#  %item%
 #
 # Also in the KILLED message you can parse placeholders as the killer like this:
 # normal: %statistic_player_kills%
@@ -24,6 +24,11 @@ death-messages:
 
 prefix: "&#EE3333&lAxKills&r &7» "
 reload: "&#33FF33Successfully reloaded the plugin!"
+usage: "&fUsage: &7/axkills <reload|toggle>"
+
+toggle:
+  enabled: "&#33FF33Death messages are now &aenabled&f!"
+  disabled: "&#33FF33Death messages are now &cdisabled&f!"
 
 item-format: "%item%"
 empty-hand-text: "air"

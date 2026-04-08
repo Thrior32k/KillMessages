@@ -1,7 +1,9 @@
 package com.artillexstudios.axkills.listeners;
 
+import com.artillexstudios.axkills.AxKills;
 import com.artillexstudios.axkills.utils.ColorUtils;
 import com.artillexstudios.axkills.utils.Utils;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -70,6 +72,14 @@ public class DeathListener implements Listener {
         msg = msg.replace("%victim%", player.getName());
         msg = Utils.setPlaceholders(player, msg);
 
-        event.setDeathMessage(ColorUtils.format(msg));
+        final String formatted = ColorUtils.format(msg);
+
+        event.setDeathMessage(null);
+
+        for (Player online : Bukkit.getOnlinePlayers()) {
+            if (!AxKills.getDatabaseManager().isDisabled(online.getUniqueId())) {
+                online.sendMessage(formatted);
+            }
+        }
     }
 }
