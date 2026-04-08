@@ -30,6 +30,8 @@ toggle:
   enabled: "&#33FF33Death messages are now &aenabled&f!"
   disabled: "&#33FF33Death messages are now &cdisabled&f!"
 
+per-world-killmessages: false
+
 item-format: "%item%"
 empty-hand-text: "air"
 
@@ -37,4 +39,4 @@ errors:
   no-permission: "&#FF3333You don't have a permission to use this!"
 
 # do not change this
-version: 4
+version: 5

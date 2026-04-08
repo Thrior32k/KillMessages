@@ -76,10 +76,12 @@ public class DeathListener implements Listener {
 
         event.setDeathMessage(null);
 
+        final boolean perWorld = CONFIG.getBoolean("per-world-killmessages", false);
+
         for (Player online : Bukkit.getOnlinePlayers()) {
-            if (!AxKills.getDatabaseManager().isDisabled(online.getUniqueId())) {
-                online.sendMessage(formatted);
-            }
+            if (AxKills.getDatabaseManager().isDisabled(online.getUniqueId())) continue;
+            if (perWorld && !online.getWorld().equals(player.getWorld())) continue;
+            online.sendMessage(formatted);
         }
     }
 }

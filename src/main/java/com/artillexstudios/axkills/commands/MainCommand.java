@@ -16,15 +16,19 @@ import java.util.stream.Stream;
 public class MainCommand implements CommandExecutor, TabCompleter {
 
     @Override
-    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String s, @NotNull String[] args) {
+    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String s,
+            @NotNull String[] args) {
 
         if (args.length > 0 && args[0].equalsIgnoreCase("toggle")) {
-            if (!(sender instanceof Player player)) {
+            if (!(sender instanceof Player)) {
                 sender.sendMessage("This command can only be used by players.");
                 return true;
             }
 
-            if (!player.hasPermission("axkills.toggle") && !player.hasPermission("axkills.admin") && !player.hasPermission("axkills.*")) {
+            final Player player = (Player) sender;
+
+            if (!player.hasPermission("axkills.toggle") && !player.hasPermission("axkills.admin")
+                    && !player.hasPermission("axkills.*")) {
                 MessageUtils.sendMsgP(player, "errors.no-permission");
                 return true;
             }
@@ -35,7 +39,8 @@ public class MainCommand implements CommandExecutor, TabCompleter {
         }
 
         if (args.length > 0 && args[0].equalsIgnoreCase("reload")) {
-            if (!sender.hasPermission("axkills.reload") && !sender.hasPermission("axkills.admin") && !sender.hasPermission("axkills.*")) {
+            if (!sender.hasPermission("axkills.reload") && !sender.hasPermission("axkills.admin")
+                    && !sender.hasPermission("axkills.*")) {
                 MessageUtils.sendMsgP(sender, "errors.no-permission");
                 return true;
             }
@@ -45,7 +50,8 @@ public class MainCommand implements CommandExecutor, TabCompleter {
             return true;
         }
 
-        if (sender.hasPermission("axkills.reload") || sender.hasPermission("axkills.admin") || sender.hasPermission("axkills.*")) {
+        if (sender.hasPermission("axkills.reload") || sender.hasPermission("axkills.admin")
+                || sender.hasPermission("axkills.*")) {
             MessageUtils.sendMsgP(sender, "usage");
         } else {
             MessageUtils.sendMsgP(sender, "errors.no-permission");
@@ -54,7 +60,8 @@ public class MainCommand implements CommandExecutor, TabCompleter {
     }
 
     @Override
-    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String alias, @NotNull String[] args) {
+    public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String alias,
+            @NotNull String[] args) {
         if (args.length == 1) {
             return Stream.of("toggle", "reload")
                     .filter(sub -> sub.startsWith(args[0].toLowerCase()))
