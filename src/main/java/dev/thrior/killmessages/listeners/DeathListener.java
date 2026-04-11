@@ -28,6 +28,7 @@ public class DeathListener implements Listener {
             msg = msg.replace("%attacker%", killer.getName());
             msg = msg.replace("%victim%", player.getName());
             msg = msg.replace("%item%", Utils.setItem(killer));
+            msg = msg.replace("%unique_id%", Utils.getUniqueIdItemName(killer));
 
             StringBuilder finalTxt = new StringBuilder();
             String[] message = msg.split("");

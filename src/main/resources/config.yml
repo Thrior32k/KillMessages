@@ -4,6 +4,7 @@
 # These only work in the KILLED message:
 #  %attacker%
 #  %item%
+#  %unique_id% - name of the weapon if it contains (&6Unique ID) in lore
 #
 # Also in the KILLED message you can parse placeholders as the killer like this:
 # normal: %statistic_player_kills%
@@ -62,8 +63,11 @@ per-world-killmessages: false
 item-format: "%item%"
 empty-hand-text: "air"
 
+unique-id-format: "&7using %item%"
+unique-id-empty: ""
+
 errors:
   no-permission: "&#FF3333You don't have a permission to use this!"
 
 # do not change this
-version: 5
+version: 6
